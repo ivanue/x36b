@@ -770,7 +770,7 @@ table.tablesorter .headerSortDown:before {
       width: 100%; float: left;
 	  padding-left: 2%;
 	  position: absolute;
-	  bottom: -20px;
+	  bottom: 0px;
  }
 #footer p { float: left; font-size: 12px; line-height: 24px; }
 #footer a { float: right; height: 24px; line-height: 22px; }
