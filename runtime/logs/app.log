@@ -1,0 +1,36 @@
+2015-03-20 03:34:51 [177.229.53.177][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 177.229.53.177
+    in /var/www/x36b/views/layouts/main.php:66
+    in /var/www/x36b/controllers/SiteController.php:52
+2015-03-20 03:34:51 [177.229.53.177][-][-][info][application] $_SERVER = [
+    'HTTP_HOST' => '54.69.128.37'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.89 Safari/537.36'
+    'HTTP_REFERER' => 'http://54.69.128.37/x36b/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'es-ES,es;q=0.8,en;q=0.6'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.7 (Ubuntu) Server at 54.69.128.37 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.7 (Ubuntu)'
+    'SERVER_NAME' => '54.69.128.37'
+    'SERVER_ADDR' => '172.31.18.114'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '177.229.53.177'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/x36b/web/index.php'
+    'REMOTE_PORT' => '52488'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/x36b/web/'
+    'SCRIPT_NAME' => '/x36b/web/index.php'
+    'PHP_SELF' => '/x36b/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1426822491.101
+    'REQUEST_TIME' => 1426822491
+]
