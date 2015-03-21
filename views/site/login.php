@@ -14,45 +14,47 @@ $this->params['breadcrumbs'][] = $this->title;
 	<div id="wrapper">
 		<div id="login-body">
 
-			<form id="login-form" class="show" method="get" action="dash.html">
-
+                                <?php $form = ActiveForm::begin([
+                                    'id' => 'login-form',
+                                    'options' => ['class' => 'form-horizontal show'],
+                                    'fieldConfig' => [
+                                        'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
+                                        'labelOptions' => ['class' => 'col-lg-1 control-label'],
+                                    ],
+                                ]); ?>
 				<div id="login">
+                                    <div id="login-user">
+                                            <div class="icon-user"><span class="arrow">"</span></div>
+                                            <?= $form->field($model, 'username',['inputOptions'=>['class'=>'login-input required']])->label(false) ?>
+                                            <div id="user-select">
+                                                    <ul class="grad2">
+                                                            <li class="sel">
+                                                                    <img src="img/avatars/alex.jpg" alt="User avatar">
+                                                                    <div class="av-login-overlay"></div><span>novalex</span></li>
+                                                            <li><img src="img/avatars/michael.jpg" alt="User avatar">
+                                                                    <div class="av-login-overlay"></div><span>m1chael</span></li>
+                                                            <li><img src="img/avatars/johnny.jpg" alt="User avatar">
+                                                                    <div class="av-login-overlay"></div><span>Johnny 1337</span></li>
+                                                    </ul>
+                                            </div>
 
-					<div id="login-user">
-						<div class="icon-user"><span class="arrow">"</span></div>
-						<input type="text" id="username" class="login-input required" placeholder="Username" value="novalex" autocomplete="off">
-						<div id="user-select">
-							<ul class="grad2">
-								<li class="sel">
-									<img src="img/avatars/alex.jpg" alt="User avatar">
-									<div class="av-login-overlay"></div><span>novalex</span></li>
-								<li><img src="img/avatars/michael.jpg" alt="User avatar">
-									<div class="av-login-overlay"></div><span>m1chael</span></li>
-								<li><img src="img/avatars/johnny.jpg" alt="User avatar">
-									<div class="av-login-overlay"></div><span>Johnny 1337</span></li>
-							</ul>
-						</div>
+                                            <div id="register">
+                                                    <p>Username not found.</p>
+                                                    <button type="button" id="reg-btn" class="green btn-s">Register</button>
+                                            </div>
 
-						<div id="register">
-							<p>Username not found.</p>
-							<button type="button" id="reg-btn" class="green btn-s">Register</button>
-						</div>
+                                    </div>
 
-					</div>
-
-					<div id="login-pass">
-						<span class="icon-securityalt-shieldalt"></span>
-                        <span id="forgot-psw" style="display: none">Forgot?</span>
-						<input type="password" id="password" class="login-input required passwf" placeholder="Password">
-					</div>
-
+                                    <div id="login-pass">
+                                            <span class="icon-securityalt-shieldalt"></span>
+                                            <?= $form->field($model, 'password', ['inputOptions'=>['class'=>'login-input required passwf']])->label(false)->passwordInput() ?>                                    </div>
 				</div>
 
 				<div id="login-avatar"><img src="img/avatars/alex.jpg" alt="Selected user avatar"><div id="av-login-overlay"></div></div>
 
 				<button id="login-btn" type="submit" class="button submit">Log in</button>
 
-			</form>
+			<?php ActiveForm::end(); ?>
 
             <form id="register-form" action="dash.html">
                 <div id="register-inner">
