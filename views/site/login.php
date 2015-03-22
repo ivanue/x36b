@@ -24,20 +24,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                 ]); ?>
 				<div id="login">
                                     <div id="login-user">
-                                            <div class="icon-user"><span class="arrow">"</span></div>
+                                            <div class="icon-user"></div>
                                             <?= $form->field($model, 'username',['inputOptions'=>['class'=>'login-input required']])->label(false) ?>
-                                            <div id="user-select">
-                                                    <ul class="grad2">
-                                                            <li class="sel">
-                                                                    <img src="img/avatars/alex.jpg" alt="User avatar">
-                                                                    <div class="av-login-overlay"></div><span>novalex</span></li>
-                                                            <li><img src="img/avatars/michael.jpg" alt="User avatar">
-                                                                    <div class="av-login-overlay"></div><span>m1chael</span></li>
-                                                            <li><img src="img/avatars/johnny.jpg" alt="User avatar">
-                                                                    <div class="av-login-overlay"></div><span>Johnny 1337</span></li>
-                                                    </ul>
-                                            </div>
-
                                             <div id="register">
                                                     <p>Username not found.</p>
                                                     <button type="button" id="reg-btn" class="green btn-s">Register</button>
@@ -54,24 +42,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
 				<button id="login-btn" type="submit" class="button submit">Log in</button>
 
-			<?php ActiveForm::end(); ?>
-
-            <form id="register-form" action="dash.html">
-                <div id="register-inner">
-                    <input type="text" id="reg-user" class="login-input required" placeholder="Username" autocomplete="off">
-                    <input type="password" id="reg-pass" class="login-input required" placeholder="Password">
-                    <input type="text" id="reg-email" class="login-input required email" placeholder="E-mail">
-                </div>
-                <button id="register-btn" type="submit" class="button submit">Register</button>
-            </form>
-
 			<div id="login-action">
 				<div id="logo"></div>
 				<div id="rb-check-cont">
-					<label for="rb-check">Remember me</label>
-					<input type="checkbox" name="remember" id="rb-check" checked>
+					<?php echo $form->field($model, 'keyfile',['inputOptions'=>['type' => 'file', 'class'=>'key_file']])->label(false) ?>
 				</div>
 			</div>
+                        <?php ActiveForm::end(); ?>
 		</div>
 		<div class="site-login">
 			<div class="col-lg-offset-1" style="color:#999;">

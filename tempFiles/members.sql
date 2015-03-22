@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.1.6
 -- http://www.phpmyadmin.net
 --
@@ -42,7 +42,6 @@ CREATE TABLE IF NOT EXISTS `members` (
 
 INSERT INTO `members` (`id`, `username`, `password`, `created`, `updated`) VALUES
 (1, 'ivan', 'a2cae7a9e64402c30efb5b9727b1cd95e517879e', '2015-03-21 04:49:01', '2015-03-21 08:39:47');
-(2, 'rmartinez', 'a2cae7a9e64402c30efb5b9727b1cd95e517879e', '2015-03-21 04:49:01', '2015-03-21 08:39:47');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

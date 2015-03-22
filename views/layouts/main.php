@@ -99,7 +99,14 @@ AppAsset::register($this);
                     </ul>
                 </li>
                 <li><a href="grid.html"><span class="nav-icon icon-th"></span>Grid</a></li>
-                <li id="logout"><a href="index.html"></a><span class="nav-icon icon-shutdown"></span>Log out</li>
+                <?php
+                    if(Yii::$app->user->isGuest) {
+                        echo '<li id="logout"><a href="'.Yii::$app->urlManager->createUrl(['site/login']).'" ></a><span class="nav-icon icon-shutdown"></span>Ingresar</li>';
+                    } else {
+                        echo '<li id="logout"><a href="'.Yii::$app->urlManager->createUrl(['site/logout']).'" data-method="post"></a><span class="nav-icon icon-shutdown"></span>Salir</li>';
+                    }   
+                ?>
+                
             </ul>
         </div>
 

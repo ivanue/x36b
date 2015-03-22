@@ -93,6 +93,7 @@
 	width: 100%; height: 30px !important;
 	float: left; display: block;
 	padding: 6px 10px; line-height: 18px;
+        width: 253px;
 }
 
 #login-user, #user-select, #register, #login-pass {
@@ -247,4 +248,11 @@ overflow:hidden;
 }
 .help-block, .help-block-error  {
     margin-top: 28px;
+}
+.key_file {
+  margin-left: -100px;
+  margin-top: -3px;
+  width: 205px;
+  height: 26px;
+  padding: 2px 1px;
 }
