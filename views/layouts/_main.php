@@ -35,20 +35,6 @@ AppAsset::register($this);
     <script src="js/flot.js"></script>
     <script src="js/justgage.js"></script>
     <script src="js/tablesorter.js"></script>
-	<script>
-		function cambioMenu(elemento) {
-			x = document.getElementById("personal");
-			x.className = "";
-			x = document.getElementById("bajas");
-			x.className = "";
-			x = document.getElementById("convocatorias");
-			x.className = "";
-			x = document.getElementById("configuracion");
-			x.className = "";
-			x = document.getElementById(elemento);
-			x.className = "active";
-		}
-	</script>
 </head>
 <body>
 
@@ -87,27 +73,45 @@ AppAsset::register($this);
         </div>
     </div>-->
 	
+	
+	
 	<div id="wrapper">
 
         <div id="sidebar">
             <div id="avatar"><img src="img/avatars/alex.jpg" alt="User avatar"><div id="av-overlay"></div></div>
-			
+
             <div id="user-notif">
+	            <div id="user-alert" class="icon-subtractshape mod-tg" data-modal="#notif-mod"><div id="notif-unread" class="notif-tag">3</div></div>
                 <div id="coll-sidebar"></div>
-				<!-- <div id="user-alert" class="icon-subtractshape icon-user" data-modal="#notif-mod"></div> -->
             </div>
             
             <ul id="nav">
-                <li id="personal" class="active" onclick = "cambioMenu('personal')"><a href = "forms_personal.html"><span class="nav-icon icon-useralt"></span>Personal</a></li>
-                <li id="bajas" onclick= "cambioMenu('bajas')"><a href = "forms_bajas.html"><span class="nav-icon icon-minus-sign"></span>Bajas</a></li>
-                <li id="convocatorias" onclick= "cambioMenu('convocatorias')"><span class="nav-icon icon-document"></span>Convocatorias</li>
-                <li id="configuracion" onclick= "cambioMenu('configuracion')"><span class="nav-icon icon-settingsthree-gears"></span>Configuración</li>
-                <li id="logout"><span class="nav-icon icon-shutdown"></span>Salir</li>
+                <li class="active"><span class="nav-icon icon-home"></span>Dash</li>
+                <li><a href="ui.html"><span class="nav-icon icon-subtractshape"></span>UI Elements</a></li>
+                <li><a href="inputs.html"><span class="nav-icon icon-dotlist"></span>Inputs</a></li>
+                <li><a href="analytics.html"><span class="nav-icon icon-analytics-piechart"></span>Analytics</a></li>
+                <li>
+                    <a href="extras.html"><span class="nav-icon icon-addtolist"></span>Extras</a>
+                    <ul class="sub-nav">
+                        <li><span class="icon icon-lock"></span><a href="403.html">403 Page</a></li>
+                        <li><span class="icon icon-question-sign"></span><a href="404.html">404 Page</a></li>
+                        <li><span class="icon icon-remove"></span><a href="503.html">503 Page</a></li>
+                    </ul>
+                </li>
+                <li><a href="grid.html"><span class="nav-icon icon-th"></span>Grid</a></li>
+                <?php
+                    if(Yii::$app->user->isGuest) {
+                        echo '<li id="logout"><a href="'.Yii::$app->urlManager->createUrl(['site/login']).'" ></a><span class="nav-icon icon-shutdown"></span>Ingresar</li>';
+                    } else {
+                        echo '<li id="logout"><a href="'.Yii::$app->urlManager->createUrl(['site/logout']).'" data-method="post"></a><span class="nav-icon icon-shutdown"></span>Salir</li>';
+                    }   
+                ?>
+                
             </ul>
         </div>
 
         <div id="content" class="dash-page">
-			<!-- <?= $content ?> -->
+			<?= $content ?>
         </div>
 
 		
@@ -116,7 +120,7 @@ AppAsset::register($this);
 	
     <footer class="footer">
         <div class="container">
-            <p class="pull-left">&copy; Unlimited Thinks <?= date('Y') ?></p>
+            <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
             <p class="pull-right"><?= Yii::powered() ?></p>
         </div>
     </footer>
