@@ -60,10 +60,18 @@ class SiteController extends Controller
         }
 
         $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            $file = UploadedFile::getInstance($model, 'keyfile');
-            print_r($file);exit;
-            return $this->goBack();
+        if ($model->load(Yii::$app->request->post())) {
+            $oFile = UploadedFile::getInstance($model, 'keyfile');
+            $strFileKey = (!empty($oFile))?file_get_contents($oFile->tempName):'';           
+            $oUser = $model->getUser()->getAttributes();
+            $strMemberKey = sha1($oUser['username'] . Yii::$app->params['keyFileSeed'] . $oUser['created']);
+            if($strMemberKey == $strFileKey && $model->login()) {
+                return $this->goBack();
+            } else {
+                return $this->render('login', [
+                    'model' => $model,
+                ]);
+            }            
         } else {
             return $this->render('login', [
                 'model' => $model,
