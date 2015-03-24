@@ -77,4 +77,10 @@ class LoginForm extends Model
 
         return $this->_user;
     }
+    
+    public function getUserById($intMemberId = 0) {
+        if ($intMemberId > 0) {
+            return User::findIdentity($intMemberId);
+        }
+    }
 }

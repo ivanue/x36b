@@ -106,6 +106,7 @@ AppAsset::register($this);
                     if(Yii::$app->user->isGuest) {
                         echo '<li id="logout"><a href="'.Yii::$app->urlManager->createUrl(['site/login']).'" ></a><span class="nav-icon icon-shutdown"></span>Ingresar</li>';
                     } else {
+                        echo '<li id="keygen"><a href="'.Yii::$app->urlManager->createUrl(['member/getkey']).'" data-method="post"></a><span class="nav-icon icon-key"></span></li>';
                         echo '<li id="logout"><a href="'.Yii::$app->urlManager->createUrl(['site/logout']).'" data-method="post"></a><span class="nav-icon icon-shutdown"></span>Salir</li>';
                     }   
                 ?>
