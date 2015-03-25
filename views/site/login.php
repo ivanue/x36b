@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     'id' => 'login-form',
                                     'options' => ['class' => 'form-horizontal show', 'enctype' => 'multipart/form-data'],
                                     'fieldConfig' => [
-                                        'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
+                                        'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8 back-out\">{error}</div>",
                                         'labelOptions' => ['class' => 'col-lg-1 control-label'],
                                     ],
                                 ]); ?>
@@ -45,7 +45,10 @@ $this->params['breadcrumbs'][] = $this->title;
 			<div id="login-action">
 				<div id="logo"></div>
 				<div id="rb-check-cont">
-					<?php echo $form->field($model, 'keyfile',['inputOptions'=>['type' => 'file', 'class'=>'key_file']])->label(false) ?>
+                                        <label class="key_label"><span>Llave</span>
+					    <?php echo $form->field($model, 'keyfile',['inputOptions'=>['type' => 'file', 'class'=>'key_file']])->label(false) ?>
+                                            
+                                        </label>
 				</div>
 			</div>
                         <?php ActiveForm::end(); ?>

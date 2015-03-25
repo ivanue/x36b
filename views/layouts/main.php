@@ -101,7 +101,7 @@ AppAsset::register($this);
                 <li id="personal" class="active" onclick = "cambioMenu('personal')"><a href="<?php echo Yii::$app->urlManager->createUrl(['personal/index']); ?>"><span class="nav-icon icon-useralt"></span>Personal</a></li>
                 <li id="bajas" onclick= "cambioMenu('bajas')"><a href="<?php echo Yii::$app->urlManager->createUrl(['bajas/index']); ?>"><span class="nav-icon icon-minus-sign"></span>Bajas</a></li>
                 <li id="convocatorias" onclick= "cambioMenu('convocatorias')"><span class="nav-icon icon-document"></span>Convocatorias</li>
-                <li id="configuracion" onclick= "cambioMenu('configuracion')"><span class="nav-icon icon-settingsthree-gears"></span>Configuración</li>
+                <li id="configuracion" onclick= "cambioMenu('configuracion')"><a href="<?php echo Yii::$app->urlManager->createUrl(['admin']); ?>"><span class="nav-icon icon-settingsthree-gears"></span>Configuración</a></li>
                 <?php
                     if(Yii::$app->user->isGuest) {
                         echo '<li id="logout"><a href="'.Yii::$app->urlManager->createUrl(['site/login']).'" ></a><span class="nav-icon icon-shutdown"></span>Ingresar</li>';
