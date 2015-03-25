@@ -1,0 +1,7 @@
+.nav-box{
+	padding-top: 0 !important;
+}
+.nav-box .nav{
+	position: inherit !important;
+	height: auto !important;
+}
