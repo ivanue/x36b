@@ -15,6 +15,7 @@ use yii\web\IdentityInterface;
  * @property string $password
  * @property string $created
  * @property string $updated
+ * @property string $confirm_password
  */
 class User extends \yii\db\ActiveRecord implements IdentityInterface
 {
@@ -32,14 +33,24 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['username', 'password'], 'required'],
+            [['username', 'password','confirm_password'], 'required'],
             [['created', 'updated'], 'safe'],
             [['username'], 'string', 'max' => 100],
+            [['confirm_password'], 'compare', 'compareAttribute'=>'password'],
             [['password'], 'string', 'max' => 32],
+            [['confirm_password'], 'string', 'max' => 32],
             [['username'], 'unique']
         ];
     }
 
+    public function attributes()
+    {
+        return array_merge(
+            parent::attributes(),
+            ['confirm_password']
+        );
+    }
+    
     /**
      * @inheritdoc
      */
@@ -49,11 +60,12 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
             'id' => 'ID',
             'username' => 'Username',
             'password' => 'Password',
+            'confirm_password' => 'Confirm Password',
             'created' => 'Created',
             'updated' => 'Updated',
         ];
     }
-      
+
 
 /** INCLUDE USER LOGIN VALIDATION FUNCTIONS**/
         /**
@@ -73,6 +85,20 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
           return static::findOne(['access_token' => $token]);
     }
  
+    public function beforeSave($insert)
+    {
+        // hash new password if set
+        $this->password = sha1($this->password);
+        /*
+        // ensure fields are null so they won't get set as empty string
+        $nullAttributes = ["email", "username", "ban_time", "ban_reason"];
+        foreach ($nullAttributes as $nullAttribute) {
+            $this->$nullAttribute = $this->$nullAttribute ? $this->$nullAttribute : null;
+        }
+*/
+        return parent::beforeSave($insert);
+    }
+    
 /* removed
     public static function findIdentityByAccessToken($token)
     {
@@ -147,6 +173,17 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     }
 
     /**
+     * sets encrypted password
+     *
+     * @param  string  $password password to validate
+     * @return boolean if password provided is valid for current user
+     */
+    public function setHashedPassword($password)
+    { 
+        return $this->password = sha1($password);
+    }
+    
+    /**
      * Generates password hash from password and sets it to the model
      *
      * @param string $password
@@ -154,6 +191,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     public function setPassword($password)
     {
         $this->password_hash = Security::generatePasswordHash($password);
+        return true;
     }
 
     /**
